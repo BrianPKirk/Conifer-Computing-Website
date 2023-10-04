@@ -1,0 +1,92 @@
+@use "sass:math";
+
+$background-gradient: linear-gradient(rgba(43, 115, 68, 255), rgba(26, 21, 75, 255)) no-repeat fixed;
+$textColor: rgba(255, 255, 255, 255);
+$textFonts: sans-serif;
+
+@mixin theme {
+  // Theming
+  background: $background-gradient;
+
+  // Text descriptions
+  font: $textFonts;
+  color: $textColor;
+}
+
+%company-logo {
+  $company-logo-size: 100px;
+
+  width: $company-logo-size;
+}
+
+%navbar-entry {
+  @include theme;
+  $horizontal-padding: 20px;
+
+  list-style: none;
+  padding: 0 $horizontal-padding 0 0;
+  display: inline-block;
+  position: relative;
+
+  a {
+    @include theme;
+
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  // Ending state of animation
+  ::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: $textColor;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+
+  :hover::after {
+    width: calc(100% - $horizontal-padding);
+  }
+}
+
+%navbar {
+  @include theme;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    @extend %company-logo;
+  }
+
+  .menu {
+    .products {
+      @extend %navbar-entry;
+    }
+
+    .about {
+      @extend %navbar-entry;
+    }
+
+    .resources {
+      @extend %navbar-entry;
+    }
+
+    .contact {
+      @extend %navbar-entry;
+    }
+  }
+}
+
+%company-name {
+  text-align: center;
+  font-size: 100px;
+}
+
+%company-slogan {
+  text-align: center;
+}

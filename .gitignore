@@ -1,0 +1,4 @@
+# IDE project files
+.idea
+scss/.sass-cache/*
+scss/*.css*

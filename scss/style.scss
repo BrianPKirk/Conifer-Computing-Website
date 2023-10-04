@@ -1,0 +1,17 @@
+@use 'base';
+
+.navbar {
+  @extend %navbar;
+}
+
+body {
+  @include base.theme;
+
+  .title {
+    @extend %company-name;
+  }
+
+  .slogan {
+    @extend %company-slogan;
+  }
+}

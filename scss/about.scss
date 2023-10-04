@@ -1,0 +1,32 @@
+@use 'base';
+
+.navbar {
+  @extend %navbar;
+}
+
+body {
+  @include base.theme;
+
+  .main-content {
+    .title {
+      @extend %company-name;
+    }
+
+    .text {
+      font-size: large;
+      padding: 20px 100px 80px 100px;
+    }
+
+    .images {
+      .ts {
+
+      }
+      .ms {
+
+      }
+      .bk {
+
+      }
+    }
+  }
+}
