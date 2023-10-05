@@ -1,55 +1,25 @@
 @use "sass:math";
 
 $background-gradient: linear-gradient(rgba(43, 115, 68, 255), rgba(26, 21, 75, 255)) no-repeat fixed;
-$textColor: rgba(255, 255, 255, 255);
-$textFonts: sans-serif;
+//$background-gradient: linear-gradient(#01FF89, #7A5FFF);
+$text-color: rgba(255, 255, 255, 255);
+$text-fonts: sans-serif;
+
+$red: #F37272;
+$brown: #584E4A;
+$whitey: #f0f0f0;
+
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 
 @mixin theme {
   // Theming
   background: $background-gradient;
 
   // Text descriptions
-  font: $textFonts;
-  color: $textColor;
-}
-
-%company-logo {
-  $company-logo-size: 100px;
-
-  width: $company-logo-size;
-}
-
-%navbar-entry {
-  @include theme;
-  $horizontal-padding: 20px;
-
-  list-style: none;
-  padding: 0 $horizontal-padding 0 0;
-  display: inline-block;
-  position: relative;
-
-  a {
-    @include theme;
-
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  // Ending state of animation
-  ::after {
-    content: '';
-    height: 3px;
-    width: 0;
-    background: $textColor;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    transition: 0.5s;
-  }
-
-  :hover::after {
-    width: calc(100% - $horizontal-padding);
-  }
+  font: $text-fonts;
+  color: $text-color;
 }
 
 %navbar {
@@ -60,24 +30,32 @@ $textFonts: sans-serif;
   justify-content: space-between;
 
   .logo {
-    @extend %company-logo;
+    $company-logo-size: 100px;
+
+    width: $company-logo-size;
   }
 
   .menu {
-    .products {
-      @extend %navbar-entry;
+    width: 500px;
+    display: grid;
+    justify-content: right;
+    @media screen and (min-width: 600px) {
+      display: flex;
+      justify-content: space-between;
     }
 
-    .about {
-      @extend %navbar-entry;
-    }
+    list-style: none;
 
-    .resources {
-      @extend %navbar-entry;
-    }
+    .navbar-menu-element {
+      a {
+        @include theme;
+        text-decoration: none;
+      }:hover {
+        text-decoration: underline;
+      }
 
-    .contact {
-      @extend %navbar-entry;
+      text-transform: uppercase;
+      padding: 0 10% 0 0
     }
   }
 }

@@ -12,20 +12,40 @@ body {
       @extend %company-name;
     }
 
-    .text {
-      font-size: large;
-      padding: 20px 100px 80px 100px;
+    .secondary-title {
+      text-align: center;
     }
 
-    .images {
-      .ts {
+    .text {
+      text-align: center;
+      font-size: large;
+      padding: 0 10% 100px 10%;
+    }
 
+    .members {
+      display: flow;
+      @media screen and (min-width: 20cm) {
+        display: inline-flex;
       }
-      .ms {
 
-      }
-      .bk {
+      justify-content: space-evenly;
+      padding: 0 10% 100px 10%;
 
+      .member-bio {
+        @media screen and (min-width: 20cm) {
+          width: 33%;
+        }
+
+        padding: 0 1% 0 1%;
+
+        .bio-image {
+          width: 100%;
+        }
+        .bio-text {
+          font-size: large;
+          text-indent: 4ch;
+          word-break-wrap: true;
+        }
       }
     }
   }

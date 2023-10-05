@@ -6,4 +6,19 @@
 
 body {
   @include base.theme;
+
+  .title {
+    font-size: 50px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .content {
+    padding: 0 10% 0 10%;
+    .upscaler {
+      width: 40%;
+    }
+  }
 }
