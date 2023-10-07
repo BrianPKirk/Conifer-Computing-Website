@@ -1,17 +1,12 @@
 @use "sass:math";
 
-$background-gradient: linear-gradient(rgba(43, 115, 68, 255), rgba(26, 21, 75, 255)) no-repeat fixed;
-//$background-gradient: linear-gradient(#01FF89, #7A5FFF);
+$background-gradient: linear-gradient(rgba(43, 115, 68, 255), rgba(26, 21, 75, 255)) fixed;
 $text-color: rgba(255, 255, 255, 255);
 $text-fonts: sans-serif;
 
-$red: #F37272;
-$brown: #584E4A;
-$whitey: #f0f0f0;
-
-$duration: .2s;
-$distance: 8px;
-$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+$x-padding: 0 10% 0 10%;
+$y-padding: 10% 0 10% 0;
+$xy-padding: 10%;
 
 @mixin theme {
   // Theming
@@ -47,11 +42,39 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     list-style: none;
 
     .navbar-menu-element {
+      @include theme;
+
       a {
         @include theme;
         text-decoration: none;
-      }:hover {
-        text-decoration: underline;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+
+        .drop-down-button {
+          @include theme;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+
+        .dropdown-content {
+          @include theme;
+          display: none;
+          position: absolute;
+
+          a {
+            @include theme;
+            text-decoration: none;
+            display: block;
+            padding: 0 0 30% 0
+          }
+        }
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
       }
 
       text-transform: uppercase;

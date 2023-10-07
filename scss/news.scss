@@ -1,0 +1,57 @@
+@use 'base';
+
+.navbar {
+  @extend %navbar;
+}
+
+.title {
+  text-align: center;
+  font-size: 10vw;
+}
+
+body {
+  @include base.theme;
+
+  .content {
+    padding: base.$xy-padding;
+
+    .update {
+      display: flex;
+      height: 40vw;
+
+      .update-header {
+        font-size: 5vw;
+      }
+
+      .update-context {
+        display: flow;
+        width: 50%;
+        padding: 1%;
+
+        .update-button {
+          @include base.theme;
+          width: 50%;
+          min-width: fit-content;
+          text-align: center;
+          border-radius: 0.8vw;
+          border: 0.2vw solid #ffffff;
+          background: transparent;
+          overflow: hidden;
+          font-size: 2vw;
+          max-font-size: 10px;
+        }
+
+        .update-body {
+          font-size: 2vw;
+          text-indent: 4ch;
+        }
+      }
+
+      .update-image {
+        width: 50%;
+        border: 0.2vw solid white;
+        border-radius: 5vw;
+      }
+    }
+  }
+}
